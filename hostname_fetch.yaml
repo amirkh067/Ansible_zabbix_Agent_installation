@@ -1,0 +1,30 @@
+# **** Setting Socket tunnel ****
+- name: Role ensures that the socks tunnel is setup
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  roles:
+    - role: ansible-role-event-socks-tunnel
+
+- name: Get Hostname and IPs of Windows Servers
+  hosts: all
+  gather_facts: false
+  ignore_errors: true
+  ignore_unreachable: true
+  vars:
+      account_code: "{{ hostvars['localhost']['account_code'] }}"
+      trans_num: "{{ hostvars['localhost']['trans_num'] }}"
+
+  tasks:
+
+    - name: Get hostname
+      win_shell: hostname
+      register: hostname_result
+
+    - name: Get IP address
+      win_shell: ipconfig | findstr /i "IPv4"
+      register: ip_result
+
+    - name: Display hostname and IP
+      debug:
+        msg: "{{ hostname_result.stdout }}\t{{ ip_result.stdout_lines[0].split(':')[1].strip() }}"

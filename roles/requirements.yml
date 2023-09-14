@@ -1,0 +1,20 @@
+- name: ansible-role-event-socks-tunnel
+  src: git+https://github.kyndryl.net/Continuous-Engineering/ansible-role-event-socks-tunnel.git
+  version: 21.10/main
+  
+- name: ansible-role-jumphost-lb-failover
+  src: git+https://github.kyndryl.net/Continuous-Engineering/ansible-role-jumphost-lb-failover.git
+  version: master
+  
+- name: ansible_role_connection_validator
+  src: git+https://github.kyndryl.net/Continuous-Engineering/ansible_role_connection_validator.git
+  version: 2.3/main
+  
+- name: returncode
+  src: git+https://github.kyndryl.net/Continuous-Engineering/ansible_role_returncode.git
+  version: 1.2/main
+    
+- name: sfs_upload
+  scm: git
+  src: https://github.kyndryl.net/Continuous-Engineering/ansible_role_sfs_upload.git
+  version: 3.0.0

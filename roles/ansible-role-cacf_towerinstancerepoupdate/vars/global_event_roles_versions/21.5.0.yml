@@ -1,0 +1,19 @@
+global_event_roles:
+  - role: ansible-role-event-final-ack
+    version: 20.11.0
+  - role: ansible-role-event-pre-check
+    version: 20.3.0
+  - role: ansible-role-event-socks-tunnel
+    version: 21.2.0
+  - role: ansible-role-event-blacklisting
+    version: 20.8.0
+  - role: ansible_role_event_common_playbook
+    version: 21.2.2
+  - role: ansible-role-event-global-eventwrapper
+    version: 21.2.0
+  - role: ansible_role_event_mapper
+    version: 21.2.0
+  - role: ansible_role_event_validate_input
+    version: 21.2.0
+  - role: ansible-role-incident-data
+    version: 21.2.0

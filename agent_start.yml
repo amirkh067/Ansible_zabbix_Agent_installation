@@ -1,0 +1,22 @@
+    # **** Setting Socket tunnel ****
+- name: Role ensures that the socks tunnel is setup
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  roles:
+    - role: ansible-role-event-socks-tunnel
+- name: Install and configure Zabbix agent
+  hosts: all
+  gather_facts: false
+  ignore_errors: true
+  ignore_unreachable: true
+  vars:
+      account_code: "{{ hostvars['localhost']['account_code'] }}"
+      trans_num: "{{ hostvars['localhost']['trans_num'] }}"
+      zabbix_agent_service_name: "Zabbix Agent 2"
+
+  tasks:
+    - name: Start Zabbix agent service
+      win_service:
+        name: "{{ zabbix_agent_service_name }}"
+        state: started
